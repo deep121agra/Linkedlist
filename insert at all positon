@@ -1,0 +1,103 @@
+# code for a head insert 
+class Node:
+    def __init__(self,key):
+        self.key=key
+        self.next=None
+
+def insertBegin(head,key):
+        temp=Node(key)
+        temp.next=head
+        return temp
+
+
+head=None
+head=insertBegin(head,10)
+head=insertBegin(head,20)
+head=insertBegin(head,30)
+
+def printList(head):
+    curr = head
+    while curr!= None:
+        print(curr.key)
+        curr = curr.next
+
+
+printList(head)
+
+
+# code for a insert at end
+
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+def transverse(head):
+    curr=head
+    while curr!=None:
+        print(curr.data)
+        curr=curr.next
+def insertend(head,x):
+    curr=head
+    if head==None:
+        return Node(data)
+    temp=Node(x)
+    while curr.next!=None:
+        curr=curr.next
+    curr.next= temp
+    return head
+head=Node(10)
+head.next=Node(20)
+head.next.next=Node(30)
+transverse(head)
+insertend(head,50)
+transverse(head)
+##---------------------##
+
+# code to insert at a given position
+
+class Node:
+    def __init__(self, k):
+        self.key = k
+        self.next = None
+
+
+def insertPos(head, data, pos):
+    temp = Node(data)
+
+    if pos == 1:
+        temp.next = head
+        return temp
+
+    curr = head
+    for i in range(pos - 2):
+        if curr == None:
+            return head
+        curr = curr.next
+
+    temp.next = curr.next
+    curr.next = temp
+
+    return head
+
+
+
+def printList(head):
+    curr = head
+    while curr != None:
+        print(curr.key)
+        curr = curr.next
+    print()
+
+
+head = Node(10)
+head.next = Node(20)
+head.next.next = Node(30)
+head.next.next.next = Node(40)
+head.next.next.next.next = Node(50)
+
+printList(head)
+
+head = insertPos(head,45,1)
+
+printList(head)
+
