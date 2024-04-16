@@ -1,0 +1,86 @@
+# progaram ofdelete head
+  class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+def firstdelete(head):
+    if head==None:
+        return None
+    if head.next==None:
+        return None
+    curr=head
+    while curr!=None:
+        head=head.next
+        return head
+def transverse(head):
+    curr=head
+    while curr!=None:
+        print(curr.data)
+        curr=curr.next
+head=Node(10)
+head.next=Node(20)
+head.next.next=Node(30)
+transverse(head)
+head=firstdelete(head)
+transverse(head)        
+
+// delete a last element of a linkedlist
+ class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+def enddelete(head):
+    if head==None:
+        return None
+    if head.next==None:
+        return None
+    curr=head
+    while curr.next.next!=None:
+        curr=curr.next
+    curr.next=None
+    return head
+def transverse(head):
+    curr=head
+    while curr!=None:
+        print(curr.data)
+        curr=curr.next
+head=Node(10)
+head.next=Node(20)
+head.next.next=Node(30)
+transverse(head)
+head=enddelete(head)
+transverse(head)  
+
+      
+// delete at a given postion 
+
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+def firstdelete(head,pos):
+    if head==None:
+        return None
+    curr=head
+    if pos==1:
+        head=head.next
+    for i in range(pos-2):
+        curr=curr.next
+    curr.next=curr.next.next
+    return head
+        
+def transverse(head):
+    curr=head
+    while curr!=None:
+        print(curr.data)
+        curr=curr.next
+head=Node(10)
+head.next=Node(20)
+head.next.next=Node(30)
+head.next.next.next=Node(40)
+transverse(head)
+head=firstdelete(head,1)
+transverse(head)      
+
+      
+      
