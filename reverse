@@ -1,0 +1,90 @@
+#method 1
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+def reverse(head):
+    stack=[]
+    curr=head
+    while curr!=None:
+        stack.append(curr.data)
+        curr=curr.next
+    me=len(stack)-1
+    curr=head
+    while curr!=None:
+        curr.data=stack[me]
+        me-=1
+        curr=curr.next
+    print()    
+    return head
+ 
+def tranverse(head):
+    curr=head
+    while curr!=None:
+        print(curr.data)
+        curr=curr.next
+head=Node(10)
+head.next=Node(20)
+head.next.next=Node(39)
+head.next.next.next=Node(40)
+tranverse(head)
+reverse(head)
+tranverse(head)
+
+
+#method 2
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+def reverse(head):
+    curr=head
+    future=None
+    previous=None
+    while curr!=None:
+        future=curr.next
+        curr.next=previous
+        previous=curr
+        curr=future
+    print()    
+    return previous    
+def tranverse(head):
+    curr=head
+    while curr!=None:
+        print(curr.data)
+        curr=curr.next
+head=Node(10)
+head.next=Node(20)
+head.next.next=Node(39)
+head.next.next.next=Node(40)
+tranverse(head)
+head=reverse(head)
+tranverse(head)
+
+# method 3
+#method 3
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+        self.future=None
+def reverse(curr,prev=None):
+    if curr==None:
+        return prev
+    future=curr.next
+    curr.next=prev
+    return reverse(future,curr)
+    
+    
+def tranverse(head):
+    curr=head
+    while curr!=None:
+        print(curr.data)
+        curr=curr.next
+head=Node(10)
+head.next=Node(20)
+head.next.next=Node(39)
+head.next.next.next=Node(40)
+tranverse(head)
+head=reverse(head)
+tranverse(head)
