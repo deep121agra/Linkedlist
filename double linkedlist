@@ -1,0 +1,285 @@
+# insert at begining of dll
+class Node:
+
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+        self.next = None
+
+
+def insertBegin(head, x):
+    temp = Node(x)
+
+    if head != None:
+        head.prev = temp
+    temp.next=head
+    temp.prev = NULL
+
+    return temp
+
+
+def printDll(head):
+    curr = head
+    while curr != None:
+        print(curr.data, end=" ")
+        curr = curr.next
+    print()
+
+
+head = Node(10)
+temp1 = Node(20)
+temp2 = Node(30)
+
+head.next = temp1
+temp1.prev = head
+
+temp1.next = temp2
+temp2.prev = temp1
+
+printDll(head)
+
+head = insertBegin(head, 40)
+
+printDll(head)
+
+#insert at end of dll
+class Node:
+
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+        self.next = None
+
+
+def insertEnd(head,x):
+
+    temp = Node(x)
+
+    if head == None:
+        return temp
+
+    else:
+
+        curr = head
+        while curr.next != None:
+            curr = curr.next
+
+        curr.next = temp
+        temp.prev = curr
+
+        return head
+
+
+def printDll(head):
+    curr = head
+    while curr != None:
+        print(curr.data, end=" ")
+        curr = curr.next
+    print()
+
+
+head = Node(10)
+temp1 = Node(20)
+temp2 = Node(30)
+
+head.next = temp1
+temp1.prev = head
+
+temp1.next = temp2
+temp2.prev = temp1
+
+printDll(head)
+
+head = insertEnd(head, 40)
+
+printDll(head)
+
+# delete head of dll
+class Node:
+
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+        self.next = None
+
+
+def delHead(head):
+
+    if head == None:
+        return None
+
+    if head.next == None:
+        return None
+    else:
+        head = head.next
+        head.prev = None
+
+        return head
+
+
+
+def printDll(head):
+    curr = head
+    while curr != None:
+        print(curr.data, end=" ")
+        curr = curr.next
+    print()
+
+
+head = Node(2)
+temp1 = Node(45)
+temp2 = Node(3)
+temp2 = Node(1)
+
+head.next = temp1
+temp1.prev = head
+
+temp1.next = temp2
+temp2.prev = temp1
+
+temp2.next = temp3
+temp3.prev = temp2
+
+printDll(head)
+
+head = delHead(head)
+
+printDll(head)
+
+//  delete last node of dll
+  class Node:
+
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+        self.next = None
+
+
+def delLast(head):
+    if head == None:
+        return None
+    if head.next == None:
+        return None
+
+    curr = head
+    while curr.next.next != None:
+        curr = curr.next
+
+    curr.next = None
+
+    return head
+
+
+def printDll(head):
+    curr = head
+    while curr != None:
+        print(curr.data, end=" ")
+        curr = curr.next
+    print()
+
+
+head = Node(2)
+temp1 = Node(45)
+temp2 = Node(3)
+temp3 = Node(1)
+
+
+head.next = temp1
+temp1.prev = head
+
+temp1.next = temp2
+temp2.prev = temp1
+
+temp2.next = temp3
+temp3.prev = temp2
+
+printDll(head)
+
+head = delLast(head)
+
+printDll(head)
+
+// reverse a dll
+# Program to reverse a doubly linked list
+
+# A node of the doubly linked list
+
+
+class Node:
+
+    # Constructor to create a new node
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+
+class DoublyLinkedList:
+     # Constructor for empty Doubly Linked List
+    def __init__(self):
+        self.head = None
+
+    # Function reverse a Doubly Linked List
+    def reverse(self):
+        temp = None
+        current = self.head
+
+        # Swap next and prev for all nodes of
+        # doubly linked list
+        while current is not None:
+            temp = current.prev
+            current.prev = current.next
+            current.next = temp
+            current = current.prev
+
+        # Before changing head, check for the cases like
+        # empty list and list with only one node
+        if temp is not None:
+            self.head = temp.prev
+
+    # Given a reference to the head of a list and an
+    # integer,inserts a new node on the front of list
+    def push(self, new_data):
+
+        # 1. Allocates node
+        # 2. Put the data in it
+        new_node = Node(new_data)
+
+        # 3. Make next of new node as head and
+        # previous as None (already None)
+        new_node.next = self.head
+
+        # 4. change prev of head node to new_node
+        if self.head is not None:
+            self.head.prev = new_node
+
+        # 5. move the head to point to the new node
+        self.head = new_node
+
+    def printList(self, node):
+        while(node is not None):
+            print(node.data,end=' ')
+            node = node.next
+
+
+# Driver code
+dll = DoublyLinkedList()
+dll.push(2)
+dll.push(4)
+dll.push(8)
+dll.push(10)
+
+print ("\nOriginal Linked List")
+dll.printList(dll.head)
+
+# Reverse doubly linked list
+dll.reverse()
+
+print ("\nReversed Linked List")
+dll.printList(dll.head)
+
+# This code is contributed by Nikhil Kumar Singh(nickzuck_007)
+      
+      
+      
+      
